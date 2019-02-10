@@ -1,0 +1,371 @@
+@font-face 
+{
+    font-family: 'Harlow Solid Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Harlow Solid Italic'), url('fonts/HARLOWSI_1.woff') format('woff');
+}
+
+*
+{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+/*GENERAL*/
+
+body
+{
+    background: #d179399e;
+    position: relative;
+    width:100vw;
+    max-width: 100vw;
+}
+
+
+/*BACKGROUND*/
+
+.container::before
+{
+    content: "\00a0";
+    background-image: url("images/food.jpg");
+    background-repeat: no-repeat;
+    background-size:cover; 
+    background-position: center 100px;
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100vh;
+    transform: rotate(90deg);
+    z-index: -20;
+    margin:0;
+}
+
+@media screen and (min-width:390px) 
+{
+    .container::before
+    {
+        background-position: center;
+        height: 100vh;
+        width: 100vw;
+        transform: rotate(0deg);
+        background-position: center ;
+    }
+}
+
+
+
+
+
+/*TITLE*/
+
+#title
+{
+    color:white;
+    text-align: center;
+    font-family: 'Harlow Solid Italic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top:60px;
+    font-size: 3.5rem;
+    padding: 0;    
+    text-shadow: 0 0 4px red;
+    font-weight: 500;
+    line-height: 1.2;
+  
+}
+
+@media screen and (min-width:768px) 
+{
+    #title
+    {
+        font-size: 4rem;
+        width:45vw;
+        margin-left:0;
+        margin-top: 5px;
+    }
+}
+
+@media screen and (min-width:1000px) 
+{
+    #title
+    {
+        font-size: 5rem;
+    }
+}
+
+
+/*FORMS GENERAL*/
+
+.form-control 
+{
+    outline:0;
+    display: block;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom:10px;
+   
+}
+
+.form-control:focus
+{
+    box-shadow: 0 0 6px #0a4bad;
+   
+}
+
+
+.btn
+{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+.btn:not(:disabled):not(.disabled) 
+{
+    cursor: pointer;
+}
+
+.btn:hover
+{
+    box-shadow: 5px 5px 5px #b6aeae;
+    width:80% !important;
+}
+
+/*LOGIN*/
+#login
+{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+#login  input
+{
+  
+    background-color: #d179399e ;
+    border: 1px solid #FFFFFF ;
+    border-radius: 31px ;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    width:90%;
+    margin: 12px auto;
+}
+
+#login .btn
+{
+    background: #265A18;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 12px;
+    width:45%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#login input::placeholder 
+{ 
+    color: #FFFFFF; 
+    font-family: 'Righteous', cursive;
+}
+
+@media screen and (min-width:768px) 
+{
+    #login
+    {
+        width:45vw;
+        margin-left:0;
+        display: inline-block;
+    }
+
+    #login  input
+    {
+        background-color: #e4b966e8;  
+        font-size:1.3em;   
+        height: 50px;   
+    }
+
+    #login .btn
+    {
+        background: white;
+        color: #265A18;
+        border: 3px solid #438F31;
+    }
+
+}
+
+
+/*SIGN UP*/
+#signup
+{
+    background:#e4b966e8;
+    border-radius: 31px;
+    letter-spacing: 0.05em;
+    font-family: 'Righteous', cursive;    
+    margin-bottom:180px;
+    padding: 1rem!important;
+    margin:auto 10px 100px;
+    
+}
+
+#signup input:not([type="checkbox"])
+{
+    border-radius: 5px;
+    border:none;
+    width: 100%;
+    
+}
+
+#signup h3
+{
+    font-size: 1.5rem;
+    margin-bottom: 20px !important;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+#signup .btn
+{
+    background: white;
+    display: block;
+    color: #265A18;
+    border: 3px solid #438F31;
+    font-size: 1.5em;
+    border-radius: 12px;    
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+
+#signup label
+{
+    font-size: 1.2em;
+    margin-left:5px;
+    transform: translateY(-16%);
+    display: inline-block;
+    margin-bottom: .2rem;
+}
+
+#signup input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  
+}
+
+#signup input::placeholder 
+{ 
+    color: #a09999; 
+    font-family: 'Righteous', cursive;
+}
+
+.check
+{
+    margin-top: 16px;
+    margin-left:10px;
+
+}
+
+
+
+
+@media screen and (min-width:768px) 
+{
+    #signup
+    {   
+        width:45vw;
+        margin-top: -12%;
+        transform: translateX(-5%);
+        float: right!important;        
+        margin:auto 10px 50px;
+       
+    }
+    #signup .btn
+    {
+        background:  #265A18;
+        color:white;
+        border: 3px solid white;
+    }
+
+    #signup h3
+    {
+        font-size: 2.5rem;
+     
+    }
+   
+}
+
+
+@media screen and (min-width:1024px) 
+{
+    #signup
+    {   
+        width:50vw;
+        transform: translateX(-3%);
+        margin-top: -10%;
+    }
+   
+}
+
+
+/*FOOTER*/
+footer
+{
+    background: #d17939;
+    margin:0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    padding: .5rem;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    
+}
+
+footer ul
+{
+    list-style-type: none;
+}
+
+footer li
+{
+    display: inline-block;
+}
+
+footer li:first-child
+{
+    margin: 0 20px 0 0;
+}
+
+/*SOCIAL MEDIA ICONS*/
+
+.github
+{
+	color:#6cc644;
+}
+
+.linkedin
+{
+    color: #03104d;
+}
+

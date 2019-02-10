@@ -1,0 +1,23 @@
+main h4
+{
+    margin: 10px;
+
+}
+
+main > button
+{
+    outline:none;
+    border:none;
+    background: #2A7E13;
+    cursor:pointer;
+    color:white;
+    padding: 10px;
+    width:35vw;
+    margin: 10px 0 0 5vw;
+    border-radius: 5px;
+}
+
+main > button:hover
+{
+    box-shadow: 5px 5px 5px #b6aeae;
+}

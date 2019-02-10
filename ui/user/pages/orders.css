@@ -1,0 +1,115 @@
+
+/*MEAL LIST*/
+#meal-list
+{
+    list-style-type: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+.meal-item
+{
+    display: grid;
+    margin-bottom: 10px;
+    border: 1px solid #f4a460;
+    position: relative;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+.meal-item img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.details
+{
+    padding: 5px;
+}
+
+
+.details .btn
+{
+    padding:5px;
+    border:none;
+    border-radius: 5px;
+    outline: none;
+    color:white;
+    margin: 5px auto;
+}
+
+.mod
+{
+    background: #E4B966;
+}
+
+
+.line
+{
+    height: 5px;
+    width:80%;
+    background: #f4a460;
+    margin: 10px 5px;
+}
+
+@media screen and (min-width:500px)
+{
+    #meal-list
+    {
+       display: grid;
+       grid-template-columns: repeat(2,1fr);
+       grid-gap: 10px;
+    }
+
+    .meal-item
+    {
+       margin-bottom: 0;
+        
+    }
+
+
+
+}
+
+@media screen and (min-width:2000px)
+{
+    .meal-item img
+    {
+        width: 16vw;
+        height: 16vw;
+    }
+
+    .details
+    {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translateY(-50%);
+    }
+}
+
+.options label
+{
+    margin: 10px auto;
+    padding: 2px;
+    padding-bottom: 10px;
+}
+
+.options input
+{
+    width:50px;
+    padding: 2px;
+    margin: 5px;
+}
+
+.options .line
+{
+    background: #999794;
+}
+
+.plates
+{
+    display: block;
+    margin: 10px;   
+}
