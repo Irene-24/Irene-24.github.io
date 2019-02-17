@@ -1,11 +1,9 @@
-class Meal {
+class Option {
   constructor() {
     this.id = null;
     this.name = null;
     this.price = null;
-    this.category = null;
-    this.options = {};
   }
 }
 
-export default Meal;
+export default Option;
