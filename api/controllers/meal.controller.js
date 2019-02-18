@@ -27,6 +27,7 @@ const MealController = {
   },
   getMeal(req, res) {
     const mealid = req.params.id;
+    console.log(mealid);
     const Meal = MealService.getMeal(mealid);
     return res.status(200).json({ Meal });
   },
