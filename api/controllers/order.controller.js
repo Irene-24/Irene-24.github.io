@@ -9,6 +9,11 @@ const OrderController = {
     };
     return res.json(response).status(200);
   },
+  addOrder(req, res) {
+    const order = req.body;
+    const createdOrder = OrderService.addOrder(order);
+    return res.status(201).json({ createdOrder });
+  },
 };
 
 export default OrderController;

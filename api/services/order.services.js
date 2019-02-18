@@ -15,6 +15,14 @@ const OrderService = {
     });
     return validOrders;
   },
+  addOrder(order) {
+    const newOrder = order;
+    const orderLength = data.orders.length;
+    const lastID = data.orders[orderLength - 1].id;
+    newOrder.id = lastID + 1;
+    data.orders.push(newOrder);
+    return newOrder;
+  },
 };
 
 export default OrderService;
