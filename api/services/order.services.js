@@ -15,6 +15,25 @@ const OrderService = {
     });
     return validOrders;
   },
+  addOrder(order) {
+    const newOrder = order;
+    const orderLength = data.orders.length;
+    const lastID = data.orders[orderLength - 1].id;
+    newOrder.id = lastID + 1;
+    data.orders.push(newOrder);
+    return newOrder;
+  },
+  modifyOrder(orderID, updates) {
+    const id = orderID;
+    const orders = [...data.orders];
+    const indexOfOrderToModify = orders.findIndex(order => order.id === id);
+    const theOrder = orders[indexOfOrderToModify];
+    updates.forEach((update) => {
+      update.keys().forEach((key) => {
+        theOrder[key] = update[key];
+      });
+    });
+  },
 };
 
 export default OrderService;
