@@ -1,10 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import MealController from './controllers/meal.controller';
+
+import mealRoutes from './routes/meal.route';
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 // PREVENT CORS ERRORS
 
@@ -19,7 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', MealController.getAllMeal());
+app.use('/api/v1/meals', mealRoutes);
 
 app.get('/', (req, res) => {
   res.status(200);
