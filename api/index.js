@@ -1,7 +1,7 @@
 import http from 'http';
 import app from './app';
 
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 2500;
 
 const server = http.createServer(app);
 

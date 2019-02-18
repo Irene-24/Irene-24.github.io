@@ -4,7 +4,7 @@ class Meal {
     this.name = null;
     this.price = null;
     this.category = null;
-    this.options = {};
+    this.options = null;
   }
 }
 
