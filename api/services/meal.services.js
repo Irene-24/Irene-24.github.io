@@ -52,7 +52,7 @@ const MealService = {
   getMeal(mealID) {
     const id = mealID;
     // console.log(id)
-    const theMeal = data.meals.find(meal => meal.id === id);
+    const theMeal = data.meals.find(meal => Number(meal.id) === Number(id));
     return theMeal;
   },
 };
