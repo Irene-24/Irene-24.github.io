@@ -30,6 +30,30 @@ const MealService = {
     data.meals.push(newMeal);
     return newMeal;
   },
+  deleteMeal(mealID) {
+    const id = mealID;
+    const meals = [...data.meals];
+    const indexOfMealToRemove = meals.findIndex(meal => meal.id === id);
+    meals.splice(indexOfMealToRemove, 1);
+    data.meals = meals;
+  },
+  modifyMeal(mealID, updates) {
+    const id = mealID;
+    const meals = [...data.meals];
+    const indexOfMealToModify = meals.findIndex(meal => meal.id === id);
+    const theMeal = meals[indexOfMealToModify];
+    updates.forEach((update) => {
+      update.keys().forEach((key) => {
+        theMeal[key] = update[key];
+      });
+    });
+    return theMeal;
+  },
+  getMeal(mealID) {
+    const id = mealID;
+    const theMeal = data.meals.find(meal => meal.id === id);
+    return theMeal;
+  },
 };
 
 export default MealService;
