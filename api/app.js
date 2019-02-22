@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mealRoutes from './routes/meal.route';
 import orderRoutes from './routes/order.route';
 import menuRoutes from './routes/menu.route';
+import orderRoutes2 from './routes/order2.route';
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 app.use('/api/v1/meals', mealRoutes);
 app.use('/api/v1/orders', orderRoutes);
+app.use('/api/v1/orders2', orderRoutes2);
 app.use('/api/v1/menu', menuRoutes);
 
 app.get('/', (req, res) => {
