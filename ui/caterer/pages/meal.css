@@ -122,7 +122,7 @@ main
 /*MODALS*/
 
 /*ADD MEAL*/
-#addMeal
+.mealModal
 {
     position: absolute;
     top:50%;
@@ -131,6 +131,27 @@ main
     background: #4d4e4dc0;
     padding: 10px;
     z-index: 50;
-  
+    display: none;
+    color:white;  
+    text-transform: uppercase;
 
+}
+
+.mealModal input 
+{
+    display: block;  
+}
+
+
+.mealModal button
+{
+    display: block;
+    margin: 5px auto ;
+    padding: 5px;
+    outline:none;
+    border:none;
+    background: #2A7E13;
+    cursor:pointer;
+    color: white;
+    
 }
