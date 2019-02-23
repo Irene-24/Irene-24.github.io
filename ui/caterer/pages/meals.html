@@ -150,9 +150,10 @@
     </main>
 
     <form action="" id="addMeal" class="mealModal" enctype="multipart/form-data">
+        <button class="formclose"> &times; </button>
 
         <label for="meal-pic">Upload Image</label>
-        <input type="file">
+        <input type="file" id="meal-pic">
 
         <div class="preview">
             <img id="output_image" />
@@ -170,6 +171,54 @@
 
 
     </form>
+
+
+    <form action="" id="modMeal" class="mealModal" enctype="multipart/form-data">
+        <button class="formclose"> &times; </button>
+
+        <label for="mod-meal-pic">Upload Image</label>
+        <input type="file" id="mod-meal-pic">
+
+        <div class="preview">
+            <img id="mod-output_image" />
+        </div>
+
+        <label for="mod-food-name">Meal title</label>
+        <input type="text" name="mod-food-name" id="mod-food-name" placeholder="Meal title">
+
+        <br>
+
+        <label for="mod-food-price">Unit Price</label>
+        <input type="number" name="mod-food-price" id="mod-food-price" placeholder="100">
+
+        <button type="submit">Submit</button>
+
+
+    </form>
+
+
+    
+    <form action="" id="delMeal" class="mealModal" enctype="multipart/form-data">
+        <button class="formclose"> &times; </button>
+        <h4>Are you sure you want to delete this meal ? </h4>
+        <div class="meal-item">
+            <img src="../../images/chicken.jpg" class="del-meal-img" alt="">
+            <div class="details">
+                <h3 class="food-title">Porridge beans</h3>
+                <div class="line"></div>
+                <div class="food-price">
+                    Unit price:&#8358;300
+                </div>
+            </div>
+
+        </div>
+
+        <button type="submit">Yes</button>
+
+
+    </form>
+
+
 
     <script src="../index.js"></script>
     <script src="./meal.js"></script>

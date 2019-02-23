@@ -155,3 +155,27 @@ main
     color: white;
     
 }
+
+.formclose
+{
+    float: right;
+}
+
+button.formclose 
+{
+    
+    background: #F76969;
+}
+
+
+@media (max-width:500px)
+{
+        .del-meal-img
+    {
+        width:100px !important;
+        height:100% !important;
+        display: block;
+        z-index:1000;
+    }
+
+}

@@ -107,12 +107,15 @@ const OrderService2 = {
     const orders = [...data];
     const indexOfOrderToFind = orders.findIndex(order => Number(order.id) === Number(id));
     const order = orders[indexOfOrderToFind];
-    const newOrder = new Order2();
-    newOrder.id = order.id;
-    newOrder.date = reviver(order.date);
-    newOrder.price = order.price;
-    newOrder.description = [...order.description];
-    return newOrder;
+    if (order) {
+      const newOrder = new Order2();
+      newOrder.id = order.id;
+      newOrder.date = reviver(order.date);
+      newOrder.price = order.price;
+      newOrder.description = [...order.description];
+      return newOrder;
+    }
+    return 'This order does not exist';
   },
 };
 export default OrderService2;
