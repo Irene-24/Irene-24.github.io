@@ -22,4 +22,21 @@ describe('Testing meal routes', () => {
         done();
       });
   });
+
+  it('it should post a meal with valid fields', (done) => {
+    const meal = {
+      id: 12,
+      name: 'porridge beans',
+      price: 150,
+      category: 'dinner',
+    };
+    chai.request(app)
+      .post('/api/v1/meals')
+      .send(meal)
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.body.should.be.a('object');
+        done();
+      });
+  });
 });
