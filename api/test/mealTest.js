@@ -113,3 +113,114 @@ describe('Testing meal routes', () => {
       });
   });
 });
+
+describe('Testing order routes', () => {
+  it('it should GET all the orders', (done) => {
+    chai.request(app)
+      .get('/api/v1/orders2')
+      .end((err, res) => {
+        const body = { ...res.body };
+        const count = Number(body.count);
+        const orders = [...body.Orders];
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        count.should.be.a('number');
+        orders.should.be.a('array');
+        done();
+      });
+  });
+
+  it('it should POST an order', (done) => {
+    const theOrder = {
+      price: 3000,
+      date: '2019-02-01T12:33:43.350Z',
+      description: [
+        {
+          mealName: 'porridge yam',
+          mealPrice: 200,
+          plates: 3,
+          toppings: [
+            {
+              toppingName: 'beef',
+              toppingPrice: 100,
+              quantity: 4,
+            },
+            {
+              toppingName: 'pomo',
+              toppingPrice: 100,
+              quantity: 4,
+            },
+          ],
+        },
+      ],
+    };
+    chai.request(app)
+      .post('/api/v1/orders2')
+      .send(theOrder)
+      .end((err, res) => {
+        const body = { ...res.body.createdOrder };
+        const price = Number(body.price);
+        const desc = body.description;
+        res.should.have.status(201);
+        res.body.should.be.a('object');
+        price.should.be.a('number');
+        desc.should.be.a('array');
+        done();
+      });
+  });
+
+  it('it should GET an order by a given id', (done) => {
+    const id = 2;
+    chai.request(app)
+      .get(`/api/v1/orders2/${id}`)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        const body = { ...res.body.theOrder };
+        body.should.have.property('id');
+        body.should.have.property('id').eql(id);
+        body.should.have.property('price');
+        body.should.have.property('date'); body.should.have.property('description');
+        body.description.should.be.a('array');
+        done();
+      });
+  });
+
+  it('it should PATCH (modify) an order by a given id', (done) => {
+    const id = 2;
+    const updates = [
+      {
+        price: 1800,
+        description: [
+          {
+            mealName: 'white rice',
+            mealPrice: 200,
+            plates: 3,
+            toppings: [
+              {
+                toppingName: 'beef',
+                toppingPrice: 100,
+                quantity: 2,
+              },
+              {
+                toppingName: 'pomo',
+                toppingPrice: 100,
+                quantity: 2,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    chai.request(app)
+      .patch(`/api/v1/orders2/${id}`)
+      .send(updates)
+      .end((err, res) => {
+        res.should.have.status(200);
+        const resp = { ...res.body.modifiedOrder };
+        resp.should.have.property('oldOrder');
+        resp.should.have.property('newOrder');
+        done();
+      });
+  });
+});
