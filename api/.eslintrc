@@ -1,7 +1,16 @@
 {
   "extends": "airbnb-base",
+  "env": {
+    "mocha": true
+  },
   "rules":{
     "linebreak-style": 0,
-    "no-console": "off"
+    "no-console": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "should|expect"
+      }
+    ]
   }
 }

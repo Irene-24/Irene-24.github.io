@@ -40,10 +40,10 @@ const MealService = {
   modifyMeal(mealID, updates) {
     const id = mealID;
     const meals = [...data.meals];
-    const indexOfMealToModify = meals.findIndex(meal => meal.id === id);
+    const indexOfMealToModify = meals.findIndex(meal => Number(meal.id) === Number(id));
     const theMeal = meals[indexOfMealToModify];
     updates.forEach((update) => {
-      update.keys().forEach((key) => {
+      Object.keys(update).forEach((key) => {
         theMeal[key] = update[key];
       });
     });
