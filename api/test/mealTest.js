@@ -58,7 +58,6 @@ describe('Testing meal routes', () => {
       .end((err, res) => {
         res.should.have.status(201);
         res.body.should.be.a('object');
-
         done();
       });
   });
@@ -68,7 +67,6 @@ describe('Testing meal routes', () => {
     chai.request(app)
       .get(`/api/v1/meals/${id}`)
       .end((err, res) => {
-        console.log(res.body);
         res.should.have.status(200);
         res.body.should.be.a('object');
         res.body.Meal.should.have.property('id');
@@ -76,6 +74,42 @@ describe('Testing meal routes', () => {
         res.body.Meal.should.have.property('name');
         res.body.Meal.should.have.property('price');
         res.body.Meal.should.have.property('category');
+        done();
+      });
+  });
+
+  it('it should DELETE a meal by a given id', (done) => {
+    const id = 2;
+    chai.request(app)
+      .delete(`/api/v1/meals/${id}`)
+      .end((err, res) => {
+        console.log(res.body);
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.should.have.property('message');
+        res.body.should.have.property('message').eql('Meal deleted');
+        done();
+      });
+  });
+
+  it('it should PATCH (modify) a meal by a given id', (done) => {
+    const id = 2;
+    const updates = [
+      {
+        name: 'fried rice',
+        category: 'all',
+        price: 250,
+      },
+    ];
+    chai.request(app)
+      .patch(`/api/v1/meals/${id}`)
+      .send(updates)
+      .end((err, res) => {
+        res.should.have.status(200);
+        const resp = { ...res.body.modMeal };
+        resp.should.have.property('id');
+        resp.should.have.property('name');
+        resp.should.have.property('id').eql(id);
         done();
       });
   });
