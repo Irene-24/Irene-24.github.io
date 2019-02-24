@@ -23,12 +23,34 @@ describe('Testing meal routes', () => {
       });
   });
 
-  it('it should post a meal with valid fields', (done) => {
+  it('it should post a meal', (done) => {
     const meal = {
       id: 12,
       name: 'porridge beans',
       price: 150,
-      category: 'dinner',
+      category: 'lunch',
+      options: [
+        {
+          id: 1,
+          name: 'chicken',
+          price: 150,
+        },
+        {
+          id: 2,
+          name: 'egg',
+          price: 60,
+        },
+        {
+          id: 3,
+          name: 'beef',
+          price: 100,
+        },
+        {
+          id: 4,
+          name: 'fish',
+          price: 200,
+        },
+      ],
     };
     chai.request(app)
       .post('/api/v1/meals')
@@ -36,6 +58,24 @@ describe('Testing meal routes', () => {
       .end((err, res) => {
         res.should.have.status(201);
         res.body.should.be.a('object');
+
+        done();
+      });
+  });
+
+  it('it should GET a meal by a given id', (done) => {
+    const id = 2;
+    chai.request(app)
+      .get(`/api/v1/meals/${id}`)
+      .end((err, res) => {
+        console.log(res.body);
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.Meal.should.have.property('id');
+        res.body.Meal.should.have.property('id').eql(id);
+        res.body.Meal.should.have.property('name');
+        res.body.Meal.should.have.property('price');
+        res.body.Meal.should.have.property('category');
         done();
       });
   });
