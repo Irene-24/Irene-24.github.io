@@ -10,6 +10,8 @@
   "author": "Irene-24",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
     "body-parser": "^1.18.3",
