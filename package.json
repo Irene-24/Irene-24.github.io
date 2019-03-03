@@ -5,7 +5,11 @@
   "main": ".api/index.js",
   "scripts": {
     "test": "mocha --require @babel/register ./api/test/**/*.js",
-    "start": "nodemon --exec babel-node ./api/index.js"
+    "start": "node ./build/index.js",
+    "build": "npm run clean && npm run transpile",
+    "clean": "shx rm -rf build && mkdir build",
+    "transpile": "babel -d ./build ./api -s",
+    "dev": "nodemon --exec babel-node api/index.js"
   },
   "author": "Irene-24",
   "license": "ISC",
@@ -21,6 +25,7 @@
     "nodemon": "^1.18.10"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
     "eslint": "^5.13.0",
@@ -31,6 +36,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.0.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "shx": "^0.3.2"
   }
 }
