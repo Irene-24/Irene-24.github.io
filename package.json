@@ -2,10 +2,10 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Api for food ordering app",
-  "main": "index.js",
+  "main": ".api/index.js",
   "scripts": {
-    "test": "mocha --require @babel/register",
-    "start": "nodemon --exec babel-node index.js"
+    "test": "mocha --require @babel/register ./api/test/**/*.js",
+    "start": "nodemon --exec babel-node ./api/index.js"
   },
   "author": "Irene-24",
   "license": "ISC",

@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   res.status(200);
   res.json(
     {
-      message: 'Working',
+      message: 'App is Working',
     },
   );
 });
