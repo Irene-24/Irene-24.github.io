@@ -1,9 +1,9 @@
-import path from 'path';
+const path = require('path');
 
-exports default  
+module.exports = 
 {
   "config": path.resolve('./api/config', 'config.json'),
-  "models-path": path.resolve('./api/models'),
+  "models-path": path.resolve('./api/seq-models'),
   "seeders-path": path.resolve('./api/seeders'),
   "migrations-path": path.resolve('./api/migrations')
 };
