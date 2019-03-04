@@ -6,9 +6,9 @@ Food Station
 
 
 ###  Contributors
-Irene-24
+_** *Irene Okafor* **_
 
-#What is the project?
+### What is the project?
 This project is a meal booking web application.
 
 ### Website
